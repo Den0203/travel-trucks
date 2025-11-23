@@ -1,50 +1,39 @@
-/* ------------------------- */
-/* CARD WRAPPER */
-/* ------------------------- */
 .card {
   width: 100%;
-  padding: 16px;
-  border: 1px solid #dadde1;
+  padding: 24px;
   border-radius: 20px;
-  background: #fff;
+  border: 1px solid #dadde1;
+  background: #ffffff;
 
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  transition: box-shadow 0.2s ease;
+  flex-direction: row;
+  gap: 24px;
 }
 
-.card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-/* ------------------------- */
-/* IMAGE */
-/* ------------------------- */
+/* photo */
 .imageWrapper {
   position: relative;
-  width: 100%;
-  height: 200px;
+  width: 292px;
+  height: 320px;
   border-radius: 10px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .image {
   object-fit: cover;
 }
 
-/* ------------------------- */
-/* INFO BLOCK */
-/* ------------------------- */
+/* text block */
 .info {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* top row: title + price */
-.top {
+/* top row: title + price + heart */
+.topRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,115 +43,95 @@
   font-size: 20px;
   font-weight: 600;
   color: #101828;
-  line-height: 1.2;
 }
 
-.priceWrapper {
+.priceBlock {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #101828;
 }
 
-.favorite {
-  background: none;
+.favoriteBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   border: none;
+  background: transparent;
   cursor: pointer;
-  font-size: 22px;
-  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ------------------------- */
-/* META (rating + location) */
-/* ------------------------- */
-.meta {
+/* rating + location */
+.metaRow {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
   font-size: 14px;
   color: #475467;
 }
 
-/* ------------------------- */
-/* FEATURES (pills) */
-/* ------------------------- */
+.rating,
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaText {
+  color: #475467;
+}
+
+/* description */
+.description {
+  font-size: 14px;
+  color: #475467;
+}
+
+/* feature pills */
 .features {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 4px;
 }
 
 .features li {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+  border-radius: 100px;
   background: #f2f4f7;
-  padding: 6px 12px;
-  border-radius: 50px;
-  color: #475467;
-  font-weight: 500;
+  font-size: 14px;
+  color: #101828;
 }
 
-/* ------------------------- */
-/* BUTTON */
-/* ------------------------- */
+/* button */
 .button {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 12px 20px;
-  background: #e44848;
-  color: white;
+  margin-top: 16px;
+  align-self: flex-start;
+
+  padding: 14px 40px;
   border-radius: 200px;
-  text-decoration: none;
-  text-align: center;
+  background: #e44848;
+  color: #ffffff;
+  font-size: 16px;
   font-weight: 600;
-  transition: background 0.2s ease;
+  text-decoration: none;
+
+  cursor: pointer;
 }
 
 .button:hover {
-  background: #c63636;
-}
-
-/* ------------------------- */
-/* ADAPTIVE */
-/* ------------------------- */
-@media (min-width: 768px) {
-  .card {
-    flex-direction: row;
-    gap: 24px;
-    padding: 20px;
-  }
-
-  .imageWrapper {
-    width: 290px;
-    height: 224px;
-    flex-shrink: 0;
-  }
-
-  .name {
-    font-size: 22px;
-  }
-
-  .price {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .card {
-    gap: 28px;
-    padding: 24px;
-  }
-
-  .imageWrapper {
-    width: 320px;
-    height: 240px;
-  }
-
-  .name {
-    font-size: 24px;
-  }
+  background: #d84343;
 }

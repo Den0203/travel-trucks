@@ -1,103 +1,148 @@
-/* Контейнер усіх фільтрів */
+/* components/catalog/Filters.module.css */
+
 .filters {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 24px 32px;
+  border: 1px solid #dadde1;
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.03);
+
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 16px;
-  border: 1px solid #dadde1;
-  border-radius: 20px;
-  background: #ffffff;
 }
 
-/* Блок (Location / Type / Equipment) */
 .block {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.block label {
-  font-size: 16px;
-  font-weight: 600;
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475467;
+}
+
+/* ===== LOCATION INPUT ===== */
+
+.inputWrapper {
+  position: relative;
+}
+
+.iconLeft {
+  position: absolute;
+  inset-block: 0;
+  left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.iconLeft img {
+  width: 16px;
+  height: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 56px;
+  padding: 16px 16px 16px 40px;
+  border-radius: 12px;
+  border: 1px solid #dadde1;
+  background: #f7f7f7;
+  font-size: 14px;
   color: #101828;
 }
 
-/* Input */
-.block input {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #dadde1;
+.input::placeholder {
+  color: #98a2b3;
+}
+
+/* ===== BUTTON GRIDS ===== */
+
+.buttonsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* VEHICLE TYPE BUTTONS */
+
+.typeBtn {
+  height: 80px;
   border-radius: 12px;
-  font-size: 14px;
-  outline: none;
-}
-
-.block input:focus {
-  border-color: #e44848;
-}
-
-/* Buttons container */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* Regular button */
-.buttons button {
-  padding: 10px 16px;
   border: 1px solid #dadde1;
-  background: #f2f4f7;
-  border-radius: 50px;
-  font-size: 14px;
-  color: #475467;
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 12px 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: #101828;
 }
 
-/* Active button */
-.active {
-  background: #e44848 !important;
-  color: white !important;
-  border-color: #e44848 !important;
+.typeBtnActive {
+  border-color: #e44848;
+  box-shadow: 0 0 0 1px #e44848;
+}
+
+.typeIcon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* EQUIPMENT BUTTONS */
+
+.equipBtn {
+  border-radius: 200px;
+  border: 1px solid #dadde1;
+  background: #ffffff;
+  padding: 8px 14px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+  font-size: 14px;
+  color: #101828;
+}
+
+.equipBtnActive {
+  border-color: #e44848;
+  background: #fff3f3;
+}
+
+.equipIcon img {
+  width: 16px;
+  height: 16px;
 }
 
 /* SEARCH BUTTON */
+
 .searchBtn {
-  margin-top: 10px;
-  width: 100%;
-  padding: 14px;
-  background: #e44848;
-  color: white;
-  border: none;
+  margin-top: 8px;
+  align-self: flex-start;
+
+  padding: 14px 40px;
   border-radius: 200px;
+  border: none;
+  background: #e44848;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.searchBtn:hover {
-  background: #c93636;
 }
 
 .searchBtn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ADAPTIVE */
-@media (min-width: 768px) {
-  .filters {
-    padding: 20px;
-    gap: 28px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .filters {
-    padding: 24px;
-    gap: 32px;
-    width: 280px;
-  }
+  opacity: 0.7;
+  cursor: default;
 }

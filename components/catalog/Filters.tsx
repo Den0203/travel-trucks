@@ -1,3 +1,4 @@
+// components/catalog/Filters.tsx
 "use client";
 
 import { useState } from "react";
@@ -5,21 +6,29 @@ import { useCampersStore } from "../../store/useCampersStore";
 import styles from "./Filters.module.css";
 
 const FEATURES = [
-  "AC",
-  "bathroom",
-  "kitchen",
-  "TV",
-  "radio",
-  "refrigerator",
-  "microwave",
-  "gas",
-  "water",
+  { key: "AC", label: "AC", icon: "/ac.svg" },
+  { key: "bathroom", label: "Bathroom", icon: "/ph_shower.svg" },
+  { key: "kitchen", label: "Kitchen", icon: "/ui-radios.svg" },
+  { key: "TV", label: "TV", icon: "/tv.svg" },
+  { key: "radio", label: "Radio", icon: "/Group.svg" },
+  {
+    key: "refrigerator",
+    label: "Refrigerator",
+    icon: "/solar_fridge-outline.svg",
+  },
+  { key: "microwave", label: "Microwave", icon: "/lucide_microwave.svg" },
+  { key: "gas", label: "Gas", icon: "/hugeicons_gas-stove.svg" },
+  { key: "water", label: "Water", icon: "/ion_water-outline.svg" },
 ] as const;
 
 const FORMS = [
-  { label: "Alcove", value: "alcove" },
-  { label: "Panel Truck", value: "panelTruck" },
-  { label: "Fully Integrated", value: "fullyIntegrated" },
+  { label: "Van", value: "panelTruck", icon: "/bi_grid-3x3-gap.svg" },
+  {
+    label: "Fully Integrated",
+    value: "fullyIntegrated",
+    icon: "/automatic.svg",
+  },
+  { label: "Alcove", value: "alcove", icon: "/ui-radios.svg" },
 ];
 
 export const Filters = () => {
@@ -29,9 +38,9 @@ export const Filters = () => {
   const [form, setForm] = useState(filters.form || "");
   const [features, setFeatures] = useState<string[]>(filters.features || []);
 
-  const toggleFeature = (f: string) => {
+  const toggleFeature = (key: string) => {
     setFeatures((prev) =>
-      prev.includes(f) ? prev.filter((x) => x !== f) : [...prev, f]
+      prev.includes(key) ? prev.filter((x) => x !== key) : [...prev, key]
     );
   };
 
@@ -42,42 +51,65 @@ export const Filters = () => {
 
   return (
     <div className={styles.filters}>
+      {/* LOCATION */}
       <div className={styles.block}>
-        <label>Location</label>
-        <input
-          placeholder="City, Country"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
+        <p className={styles.label}>Location</p>
+        <div className={styles.inputWrapper}>
+          <span className={styles.iconLeft}>
+            <img src="/Map.svg" alt="" />
+          </span>
+          <input
+            className={styles.input}
+            placeholder="City, Country"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
       </div>
 
+      {/* VEHICLE TYPE */}
       <div className={styles.block}>
-        <label>Vehicle Type</label>
-        <div className={styles.buttons}>
+        <p className={styles.label}>Vehicle type</p>
+        <div className={styles.buttonsGrid}>
           {FORMS.map((f) => (
             <button
               key={f.value}
               type="button"
-              className={form === f.value ? styles.active : ""}
+              className={
+                form === f.value
+                  ? `${styles.typeBtn} ${styles.typeBtnActive}`
+                  : styles.typeBtn
+              }
               onClick={() => setForm(f.value)}
             >
-              {f.label}
+              <span className={styles.typeIcon}>
+                <img src={f.icon} alt="" />
+              </span>
+              <span>{f.label}</span>
             </button>
           ))}
         </div>
       </div>
 
+      {/* EQUIPMENT */}
       <div className={styles.block}>
-        <label>Equipment</label>
-        <div className={styles.buttons}>
+        <p className={styles.label}>Vehicle equipment</p>
+        <div className={styles.buttonsGrid}>
           {FEATURES.map((feat) => (
             <button
-              key={feat}
+              key={feat.key}
               type="button"
-              className={features.includes(feat) ? styles.active : ""}
-              onClick={() => toggleFeature(feat)}
+              className={
+                features.includes(feat.key)
+                  ? `${styles.equipBtn} ${styles.equipBtnActive}`
+                  : styles.equipBtn
+              }
+              onClick={() => toggleFeature(feat.key)}
             >
-              {feat}
+              <span className={styles.equipIcon}>
+                <img src={feat.icon} alt="" />
+              </span>
+              <span>{feat.label}</span>
             </button>
           ))}
         </div>
