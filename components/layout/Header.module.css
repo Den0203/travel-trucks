@@ -1,73 +1,69 @@
+/* HEADER WRAPPER */
 .header {
   width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #dadde1;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(16, 24, 40, 0.05);
 }
 
-.container {
-  max-width: 1280px;
+/* 1440px fixed layout centered */
+.inner {
+  width: 1440px;
+  max-width: 1440px;
+  height: 64px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 0 64px;
 
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* LOGO */
+.logoLink {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: #101828;
-  text-decoration: none;
+.logoImg {
+  width: 136px;
+  height: 16px;
+  display: block;
 }
 
+/* NAVIGATION CENTER */
 .nav {
   display: flex;
-  gap: 24px;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
 }
 
-.link {
+/* NAV LINKS */
+.nav a {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  color: #475467;
+  line-height: 1.5;
+
+  color: #101828;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+
+  padding-bottom: 4px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.link:hover {
-  color: #1d2939;
+/* HOVER / FOCUS */
+.nav a:hover,
+.nav a:focus {
+  color: #d84343;
 }
 
+/* ACTIVE LINK */
 .active {
-  color: #e44848;
-  font-weight: 600;
+  color: #d84343 !important;
 }
 
-/* ----------------------------- */
-/* Breakpoints */
-/* ----------------------------- */
-
-@media (min-width: 375px) {
-  .logo {
-    font-size: 22px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-
-  .logo {
-    font-size: 24px;
-  }
-
-  .link {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    padding: 24px 0;
-  }
+/* EMPTY BLOCK FOR PERFECT CENTERING (MIRROR OF LOGO) */
+.right {
+  width: 100%;
 }

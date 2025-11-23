@@ -1,100 +1,92 @@
 .hero {
-  width: 100%;
-  height: 500px;
-
-  background-image: url("/hero.jpg"); /* заміни на своє фото */
-  background-size: cover;
-  background-position: center;
-
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  width: 100vw;
+  height: 640px;
+  overflow: hidden;
 }
 
+/* Зображення */
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1); /* Дзеркально */
+}
+
+/* Градієнт */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(16, 24, 40, 0.55);
-}
 
-.content {
-  position: relative;
-  margin-left: 20px;
-  max-width: 90%;
-  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  align-items: center;
 }
 
+/* Контейнер */
+.inner {
+  position: relative;
+  z-index: 2;
+
+  width: 1440px; /* ПІД МАКЕТ */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 64px; /* точний відступ з макету */
+  transform: translateY(40px);
+}
+
+/* Заголовок */
 .title {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.subtitle {
-  font-size: 16px;
-  color: #e6e7e9;
-}
-
-.button {
-  display: inline-block;
-  padding: 12px 28px;
-  background: #e44848;
-  color: white;
-  border-radius: 200px;
-  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 48px;
   font-weight: 600;
+  line-height: 1.33;
+  color: #f7f7f7;
+  margin-bottom: 8px; /* по макету */
+}
+
+/* Підзаголовок */
+.subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 24px; /* по макету */
+  font-weight: 600; /* по макету */
+  line-height: 1.33;
+  color: #f7f7f7;
+  margin-bottom: 40px; /* по макету */
+  max-width: 550px; /* з інспектора ~550px */
+}
+
+/* Кнопка */
+.button {
+  width: 173px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 200px;
+  background: #e44848;
+
   text-decoration: none;
-  width: fit-content;
-  transition: background 0.2s ease-in-out;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease;
 }
 
-.button:hover {
-  background: #ba3737;
-}
-
-/* ----------------------------- */
-/* Breakpoints */
-/* ----------------------------- */
-
-@media (min-width: 375px) {
-  .title {
-    font-size: 32px;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero {
-    height: 600px;
-  }
-
-  .content {
-    margin-left: 60px;
-    max-width: 420px;
-  }
-
-  .title {
-    font-size: 42px;
-  }
-
-  .subtitle {
-    font-size: 18px;
-  }
-
-  .button {
-    font-size: 18px;
-    padding: 14px 32px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero {
-    height: 700px;
-  }
-
-  .content {
-    margin-left: 80px;
-  }
+.button:hover,
+.button:focus {
+  background: #d84343;
 }
