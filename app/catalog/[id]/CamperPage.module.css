@@ -1,0 +1,80 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 60px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #101828;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #475467;
+  font-size: 14px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.description {
+  font-size: 14px;
+  color: #475467;
+}
+
+.right {
+  width: 100%;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .main {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .left {
+    width: 60%;
+  }
+
+  .right {
+    width: 40%;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1280px) {
+  .left {
+    width: 65%;
+  }
+
+  .right {
+    width: 35%;
+  }
+}
