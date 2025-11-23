@@ -1,0 +1,168 @@
+/* ------------------------- */
+/* CARD WRAPPER */
+/* ------------------------- */
+.card {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ------------------------- */
+/* IMAGE */
+/* ------------------------- */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ------------------------- */
+/* INFO BLOCK */
+/* ------------------------- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* top row: title + price */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #101828;
+  line-height: 1.2;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.favorite {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* ------------------------- */
+/* META (rating + location) */
+/* ------------------------- */
+.meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 14px;
+  color: #475467;
+}
+
+/* ------------------------- */
+/* FEATURES (pills) */
+/* ------------------------- */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.features li {
+  font-size: 14px;
+  background: #f2f4f7;
+  padding: 6px 12px;
+  border-radius: 50px;
+  color: #475467;
+  font-weight: 500;
+}
+
+/* ------------------------- */
+/* BUTTON */
+/* ------------------------- */
+.button {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 20px;
+  background: #e44848;
+  color: white;
+  border-radius: 200px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #c63636;
+}
+
+/* ------------------------- */
+/* ADAPTIVE */
+/* ------------------------- */
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .imageWrapper {
+    width: 290px;
+    height: 224px;
+    flex-shrink: 0;
+  }
+
+  .name {
+    font-size: 22px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    gap: 28px;
+    padding: 24px;
+  }
+
+  .imageWrapper {
+    width: 320px;
+    height: 240px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+}

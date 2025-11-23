@@ -10,9 +10,7 @@ export const CampersList = () => {
     useCampersStore();
 
   useEffect(() => {
-    if (!campers.length) {
-      resetAndFetch();
-    }
+    if (!campers.length) resetAndFetch();
   }, []);
 
   return (

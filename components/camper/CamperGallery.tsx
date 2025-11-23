@@ -9,14 +9,15 @@ interface Props {
 export const CamperGallery = ({ images }: Props) => (
   <div className={styles.gallery}>
     {images.map((img, i) => (
-      <Image
-        key={i}
-        src={img.original}
-        alt=""
-        width={320}
-        height={240}
-        className={styles.img}
-      />
+      <div key={i} className={styles.item}>
+        <Image
+          src={img.original}
+          alt={`Camper photo ${i + 1}`}
+          width={400}
+          height={300}
+          className={styles.img}
+        />
+      </div>
     ))}
   </div>
 );

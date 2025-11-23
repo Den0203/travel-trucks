@@ -1,0 +1,73 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Equipment list */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #dadde1;
+  font-size: 16px;
+}
+
+.list span {
+  color: #475467;
+}
+
+.list strong {
+  color: #101828;
+  font-weight: 600;
+}
+
+/* Vehicle details */
+.details h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #101828;
+}
+
+.details ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.details li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #dadde1;
+  font-size: 16px;
+}
+
+.details span {
+  color: #475467;
+}
+
+.details strong {
+  color: #101828;
+  font-weight: 600;
+}
+
+/* Desktop: 2 columns */
+@media (min-width: 1280px) {
+  .wrapper {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .list,
+  .details {
+    width: 50%;
+  }
+}

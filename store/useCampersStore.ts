@@ -9,9 +9,14 @@ interface CampersState {
   limit: number;
   hasMore: boolean;
   isLoading: boolean;
-  filters: CamperFilters;
 
+  // ДОДАНО ▼
+  favorites: string[];
+  toggleFavorite: (id: string) => void;
+
+  filters: CamperFilters;
   setFilters: (filters: CamperFilters) => void;
+
   resetAndFetch: () => Promise<void>;
   loadMore: () => Promise<void>;
 }
@@ -23,6 +28,19 @@ export const useCampersStore = create<CampersState>((set, get) => ({
   limit: 4,
   hasMore: true,
   isLoading: false,
+
+  // ДОДАНО ▼
+  favorites: [],
+  toggleFavorite: (id) => {
+    const { favorites } = get();
+
+    if (favorites.includes(id)) {
+      set({ favorites: favorites.filter((f) => f !== id) });
+    } else {
+      set({ favorites: [...favorites, id] });
+    }
+  },
+
   filters: {},
 
   setFilters: (filters) => set({ filters }),

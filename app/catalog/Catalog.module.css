@@ -1,0 +1,46 @@
+/* Основний layout каталогу */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+/* Sidebar (фільтри) */
+.sidebar {
+  width: 100%;
+}
+
+/* Контент (список кемперів) */
+.content {
+  width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .sidebar {
+    width: 280px;
+    flex-shrink: 0;
+  }
+
+  .content {
+    flex-grow: 1;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1280px) {
+  .layout {
+    gap: 60px;
+  }
+
+  .sidebar {
+    width: 320px;
+  }
+}

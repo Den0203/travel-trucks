@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const pathname = usePathname();
 
   return (
     <header className={styles.header}>
-      <div className={styles.inner}>
+      <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           TravelTrucks
         </Link>
@@ -23,6 +23,7 @@ export const Header = () => {
           >
             Home
           </Link>
+
           <Link
             href="/catalog"
             className={`${styles.link} ${

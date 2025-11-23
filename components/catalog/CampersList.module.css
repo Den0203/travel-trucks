@@ -1,0 +1,76 @@
+/* Головний контейнер списку */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+/* Loader */
+.loader {
+  text-align: center;
+  font-size: 16px;
+  color: #475467;
+  padding: 12px 0;
+}
+
+/* Load More кнопка */
+.loadMore {
+  margin: 20px auto 0;
+  padding: 12px 32px;
+
+  background: #e44848;
+  color: #fff;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 200px;
+  cursor: pointer;
+
+  transition: background 0.2s ease-in-out;
+}
+
+.loadMore:hover {
+  background: #c63636;
+}
+
+/* --------------------------------------- */
+/* BREAKPOINT 375px */
+/* --------------------------------------- */
+@media (min-width: 375px) {
+  .wrapper {
+    gap: 24px;
+  }
+}
+
+/* --------------------------------------- */
+/* BREAKPOINT 768px */
+/* --------------------------------------- */
+@media (min-width: 768px) {
+  .wrapper {
+    gap: 28px;
+    padding-bottom: 60px;
+  }
+
+  .loadMore {
+    margin-top: 24px;
+    padding: 14px 36px;
+    font-size: 18px;
+  }
+}
+
+/* --------------------------------------- */
+/* BREAKPOINT 1280px */
+/* --------------------------------------- */
+@media (min-width: 1280px) {
+  .wrapper {
+    gap: 32px;
+    padding-bottom: 80px;
+  }
+
+  .loadMore {
+    margin-top: 28px;
+  }
+}

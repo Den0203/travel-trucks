@@ -1,56 +1,64 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { Camper } from "../../lib/types";
-import { useFavoritesStore } from "../../store/useFavoritesStore";
+import Link from "next/link";
 import styles from "./CamperCard.module.css";
+import { useCampersStore } from "../../store/useCampersStore";
+import { Camper } from "@/lib/types"; // ← ось це важливо!
 
-interface Props {
+type Props = {
   camper: Camper;
-}
+};
 
 export const CamperCard = ({ camper }: Props) => {
-  const { isFavorite, toggleFavorite } = useFavoritesStore();
+  const { favorites, toggleFavorite } = useCampersStore();
+
+  const isFavorite = favorites.includes(camper.id);
 
   return (
-    <article className={styles.card}>
-      <div className={styles.imgWrapper}>
+    <div className={styles.card}>
+      <div className={styles.imageWrapper}>
         <Image
-          src={camper.gallery[0]?.original}
+          src={camper.gallery[0].thumb}
           alt={camper.name}
-          width={300}
-          height={200}
-          className={styles.img}
+          fill
+          className={styles.image}
         />
       </div>
 
-      <div className={styles.body}>
-        <div className={styles.header}>
-          <h2>{camper.name}</h2>
-          <div className={styles.priceBlock}>
-            <span>€{camper.price.toFixed(2)}</span>
+      <div className={styles.info}>
+        <div className={styles.top}>
+          <h2 className={styles.name}>{camper.name}</h2>
+
+          <div className={styles.priceWrapper}>
+            <span className={styles.price}>€{camper.price.toFixed(2)}</span>
             <button
-              type="button"
-              className={isFavorite(camper.id) ? styles.favActive : styles.fav}
+              className={styles.favorite}
               onClick={() => toggleFavorite(camper.id)}
             >
-              ♥
+              {isFavorite ? "❤️" : "🤍"}
             </button>
           </div>
         </div>
 
         <div className={styles.meta}>
-          <span>⭐ {camper.rating}</span>
-          <span>{camper.location}</span>
+          <span className={styles.rating}>⭐ {camper.rating}</span>
+          <span className={styles.location}>{camper.location}</span>
         </div>
 
-        <p className={styles.description}>{camper.description}</p>
+        <ul className={styles.features}>
+          {camper.AC && <li>AC</li>}
+          {camper.bathroom && <li>Bathroom</li>}
+          {camper.kitchen && <li>Kitchen</li>}
+          {camper.TV && <li>TV</li>}
+          {camper.radio && <li>Radio</li>}
+          {camper.refrigerator && <li>Fridge</li>}
+        </ul>
 
-        <Link href={`/catalog/${camper.id}`} className={styles.moreBtn}>
+        <Link href={`/catalog/${camper.id}`} className={styles.button}>
           Show more
         </Link>
       </div>
-    </article>
+    </div>
   );
 };

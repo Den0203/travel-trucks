@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100%;
+  margin-top: 32px;
+}
+
+/* Tabs container */
+.tabs {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid #dadde1;
+  padding-bottom: 4px;
+  margin-bottom: 24px;
+}
+
+/* Tab button */
+.tabs button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  color: #475467;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* Active state */
+.active {
+  color: #101828;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #e44848;
+  border-radius: 2px;
+}

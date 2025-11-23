@@ -1,0 +1,103 @@
+/* Контейнер усіх фільтрів */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+/* Блок (Location / Type / Equipment) */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.block label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #101828;
+}
+
+/* Input */
+.block input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.block input:focus {
+  border-color: #e44848;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Regular button */
+.buttons button {
+  padding: 10px 16px;
+  border: 1px solid #dadde1;
+  background: #f2f4f7;
+  border-radius: 50px;
+  font-size: 14px;
+  color: #475467;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Active button */
+.active {
+  background: #e44848 !important;
+  color: white !important;
+  border-color: #e44848 !important;
+}
+
+/* SEARCH BUTTON */
+.searchBtn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+  background: #e44848;
+  color: white;
+  border: none;
+  border-radius: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.searchBtn:hover {
+  background: #c93636;
+}
+
+.searchBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ADAPTIVE */
+@media (min-width: 768px) {
+  .filters {
+    padding: 20px;
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .filters {
+    padding: 24px;
+    gap: 32px;
+    width: 280px;
+  }
+}
