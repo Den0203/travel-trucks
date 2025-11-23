@@ -10,7 +10,8 @@ export const CampersList = () => {
     useCampersStore();
 
   useEffect(() => {
-    if (!campers.length) resetAndFetch();
+    resetAndFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
